@@ -59,6 +59,20 @@
     <v-main>
       <router-view/>
     </v-main>
+    <v-fab-transition>
+      <v-btn
+
+          color="primary"
+          fab
+          large
+          dark
+          bottom
+          left
+          class="v-btn--example mb-6 ml-6"
+      >
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+    </v-fab-transition>
   </v-app>
 </template>
 
