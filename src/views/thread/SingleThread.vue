@@ -23,7 +23,11 @@
               <p class="darken-3">2022/12/22 22:30</p>
             </v-col>
           </v-row>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolore doloremque ducimus enim error eveniet exercitationem ipsa, nemo nihil odit perspiciatis quis, repellendus sequi soluta, tempore tenetur voluptate voluptates. Beatae eaque molestias soluta. Ab at dicta doloremque illo laudantium molestiae voluptatem. Accusantium dignissimos eum illo modi non quaerat quibusdam, recusandae, sequi sit soluta ullam velit, voluptatum! Natus, quas quos.</p>
+          <vue-markdown>
+            # My Markdown Test
+            :)
+            [Google](https://google.com)
+          </vue-markdown>
         </v-card-text>
       </v-card>
 
@@ -80,8 +84,13 @@
 </template>
 
 <script>
+
+import VueMarkdown from "vue-markdown/src/VueMarkdown"
 export default {
-  name: "SingleThread"
+  name: "SingleThread",
+  components:{
+    VueMarkdown
+  }
 }
 </script>
 
