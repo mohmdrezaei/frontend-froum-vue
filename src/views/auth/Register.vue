@@ -50,7 +50,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" @click="sendRegisterRequest">Register</v-btn>
+            <v-btn color="primary" @click="register">Register</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -59,8 +59,34 @@
 </template>
 
 <script>
+import {registerRequest} from "../../../requests/Auth";
+
 export default {
-  name: "Register"
+  name: "Register",
+
+  data() {
+    return {
+      name: null,
+      email: null,
+      password: null
+    }
+  },
+
+  methods: {
+    register() {
+      const formData = {
+        name : this.name,
+        email : this.email,
+        password : this.password
+      }
+
+      registerRequest(formData).then(res =>{
+        this.$router.push('/login')
+      }).catch(err => {
+        console.error(err)
+      })
+    }
+  }
 }
 </script>
 
