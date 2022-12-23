@@ -9,24 +9,24 @@ class="mt-4"
     <v-col
     cols="12"
     md="6"
+    v-for="(thread,index) in threads"  :key="index"
     >
       <v-card>
         <v-card-title>
-            <router-link to="/thread/laravel+error" class="text-decoration-none black--text">
-              <h2>laravel error</h2>
+            <router-link :to="'/thread/'+thread.slug" class="text-decoration-none black--text">
+              <h2>{{thread.title}}</h2>
             </router-link>
         </v-card-title>
 
         <v-card-text>
           <v-row >
             <v-col>
-              <p class="darken-3">mohammad rezaei</p>
+              <p class="darken-3">{{ thread.user.name }}</p>
             </v-col>
             <v-col class="text-right">
-              <p class="darken-3">2022/12/22 22:30</p>
+              <p class="darken-3">{{thread.created_at}}</p>
             </v-col>
           </v-row>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum dignissimos harum iste labore nostrum nulla placeat porro quidem voluptates!</p>
 
         </v-card-text>
       </v-card>
@@ -39,6 +39,7 @@ class="mt-4"
 
 <script>
   import HelloWorld from '../components/HelloWorld'
+  import {threadsListRequest} from "../../requests/Threads";
 
   export default {
     name: 'Home',
@@ -46,5 +47,22 @@ class="mt-4"
     components: {
       HelloWorld,
     },
+
+    data(){
+      return{
+        threads:[]
+      }
+    },
+
+    mounted() {
+      threadsListRequest.then(res => {
+        this.threads = res.data.data
+      }).catch(err =>{
+        console.log(err)
+        if (err.response.statusCode !== 200){
+          alert('Failed To Load Data!')
+        }
+      })
+    }
   }
 </script>

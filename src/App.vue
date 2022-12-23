@@ -69,7 +69,7 @@
            bottom
            left
            class="v-btn--example mb-6 ml-6"
-           to="create/thread"
+           :to="{name : 'create thread'}"
        >
          <v-icon>mdi-plus</v-icon>
        </v-btn>
