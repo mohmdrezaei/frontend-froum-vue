@@ -14,11 +14,7 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  {
-    path: '/register',
-    name: 'register',
-    component: Register
-  },
+
   {
     path: '/login',
     name: 'login',

@@ -27,14 +27,7 @@
 
       <v-spacer></v-spacer>
 
-      <router-link to="/register">
-        <v-btn
-            text
-        >
-          <span class="mr-2">Register</span>
-          <v-icon>mdi-pencil</v-icon>
-        </v-btn>
-      </router-link>
+
       <router-link to="/login">
         <v-btn
             text
@@ -85,7 +78,7 @@ export default {
   name: 'App',
 
   data: () => ({
-    //
+    step:1
   }),
 
   mounted() {

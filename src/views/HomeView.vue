@@ -72,7 +72,7 @@ class="mt-4"
 
 <script>
   import HelloWorld from '../components/HelloWorld'
-  import {threadsListRequest} from "../../requests/Threads";
+  import {threadsListRequest} from "../requests/Threads";
 
   export default {
     name: 'Home',
